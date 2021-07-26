@@ -20,17 +20,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        vscode_arch: [x64, arm64, armhf]
+        vscode_arch: [x64]
         include:
         - vscode_arch: x64
           npm_arch: x64
           image: vscodium/vscodium-linux-build-agent:bionic-x64
-        - vscode_arch: arm64
-          npm_arch: arm64
-          image: vscodium/vscodium-linux-build-agent:stretch-arm64
-        - vscode_arch: armhf
-          npm_arch: armv7l
-          image: vscodium/vscodium-linux-build-agent:stretch-armhf
 
     steps:
       - uses: actions/checkout@v2
@@ -105,11 +99,4 @@ jobs:
             ./VSCodium-*.AppImage.zsync
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update versions repo
-        if: env.SHOULD_BUILD == 'yes' && env.SHOULD_DEPLOY == 'yes'
-        run: ./update_version.sh
-        env:
-          GITHUB_TOKEN: ${{ secrets.STRONGER_GITHUB_TOKEN }}
-          GITHUB_USERNAME: ${{ github.repository_owner }}
 
