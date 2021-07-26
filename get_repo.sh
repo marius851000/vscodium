@@ -1,9 +1,16 @@
 #!/bin/bash
 
-git clone https://github.com/Microsoft/vscode.git --branch cfa2e218100323074ac1948c885448fdf4de2a7f --depth 1
+COMMIT=cfa2e218100323074ac1948c885448fdf4de2a7f
+
+git clone https://github.com/Microsoft/vscode.git --depth 1
+
+pushd vscode
+git fetch origin $COMMIT --depth=1
+git checkout $COMMIT
+popd
 
 # for GH actions
 if [[ $GITHUB_ENV ]]; then
-	echo "LATEST_MS_COMMIT=$LATEST_MS_COMMIT" >> $GITHUB_ENV
-	echo "LATEST_MS_TAG=$LATEST_MS_TAG" >> $GITHUB_ENV
+	echo "LATEST_MS_COMMIT=$COMMIT" >> $GITHUB_ENV
+	echo "LATEST_MS_TAG=git" >> $GITHUB_ENV
 fi
