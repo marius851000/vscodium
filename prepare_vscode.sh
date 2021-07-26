@@ -10,8 +10,8 @@ cd vscode || exit
 # apply patches
 
 patch -u resources/linux/rpm/code.spec.template -i ../patches/fix-rpm-spec.patch
-git apply --ignore-whitespace ../patches/binary-name.patch
-git apply --ignore-whitespace ../patches/custom-gallery.patch
+#git apply --ignore-whitespace ../patches/binary-name.patch
+#git apply --ignore-whitespace ../patches/custom-gallery.patch
 for file in ../patches/user/*.patch; do
   if [ -f "$file" ]; then
     echo applying user patch: $file;
