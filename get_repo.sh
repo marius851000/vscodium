@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMMIT=d3f040fe017e55c19d7ec7246726c70de649f168
+COMMIT=3d978d4ddefeb16e0387d4687019a764b67e584a
 
 git clone https://github.com/Microsoft/vscode.git --depth 1
 
@@ -12,5 +12,5 @@ popd
 # for GH actions
 if [[ $GITHUB_ENV ]]; then
 	echo "LATEST_MS_COMMIT=$COMMIT" >> $GITHUB_ENV
-	echo "LATEST_MS_TAG=git-5" >> $GITHUB_ENV
+	echo "LATEST_MS_TAG=git-6" >> $GITHUB_ENV
 fi
