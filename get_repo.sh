@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COMMIT=1.57.1
+COMMIT=1.57.0
 
 git clone https://github.com/Microsoft/vscode.git --depth 1
 
@@ -12,5 +12,5 @@ popd
 # for GH actions
 if [[ $GITHUB_ENV ]]; then
 	echo "LATEST_MS_COMMIT=$COMMIT" >> $GITHUB_ENV
-	echo "LATEST_MS_TAG=1.57.1-glasscord" >> $GITHUB_ENV
+	echo "LATEST_MS_TAG=1.57.0-glasscordwork" >> $GITHUB_ENV
 fi

@@ -1,0 +1,25 @@
+diff --git a/src/vs/platform/theme/electron-main/themeMainService.ts b/src/vs/platform/theme/electron-main/themeMainService.ts
+index 189811d6fdf..52f983e38f4 100644
+--- a/src/vs/platform/theme/electron-main/themeMainService.ts
++++ b/src/vs/platform/theme/electron-main/themeMainService.ts
+@@ -67,20 +67,9 @@ export class ThemeMainService implements IThemeMainService {
+ 			{ key: THEME_BG_STORAGE_KEY, data: splash.colorInfo.background },
+ 			{ key: THEME_WINDOW_SPLASH, data: splash }
+ 		]);
+-
+-		// Update in opened windows
+-		if (typeof windowId === 'number') {
+-			this.updateBackgroundColor(windowId, splash);
+-		}
+ 	}
+ 
+ 	private updateBackgroundColor(windowId: number, splash: IPartsSplash): void {
+-		for (const window of BrowserWindow.getAllWindows()) {
+-			if (window.id === windowId) {
+-				window.setBackgroundColor(splash.colorInfo.background);
+-				break;
+-			}
+-		}
+ 	}
+ 
+ 	getWindowSplash(): IPartsSplash | undefined {
