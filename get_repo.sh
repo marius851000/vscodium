@@ -12,5 +12,5 @@ popd
 # for GH actions
 if [[ $GITHUB_ENV ]]; then
 	echo "LATEST_MS_COMMIT=$COMMIT" >> $GITHUB_ENV
-	echo "LATEST_MS_TAG=1.57.0-glasscordwork" >> $GITHUB_ENV
+	echo "LATEST_MS_TAG=1.57.0-glasscordworkbis" >> $GITHUB_ENV
 fi
